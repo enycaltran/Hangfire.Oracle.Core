@@ -31,6 +31,7 @@ namespace Hangfire.Oracle.Core
         {
         }
 
+        // comment
         public OracleDistributedLock(IDbConnection connection, string resource, TimeSpan timeout, CancellationToken cancellationToken)
         {
             Logger.TraceFormat("OracleDistributedLock resource={0}, timeout={1}", resource, timeout);
