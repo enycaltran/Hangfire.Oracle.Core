@@ -72,6 +72,8 @@ namespace Hangfire.Oracle.Core
                 using (var connection = CreateAndOpenConnection())
                 {
                     OracleObjectsInstaller.Install(connection, options.SchemaName);
+                    connection.Close();
+                    connection.Dispose();
                 }
             }
         }
@@ -228,6 +230,8 @@ namespace Hangfire.Oracle.Core
 
         internal void ReleaseConnection(IDbConnection connection)
         {
+            // ENRICO 
+            connection?.Close();
             connection?.Dispose();
         }
         public void Dispose()
